@@ -31,4 +31,12 @@ export class AppComponent {
     this.currentCard = this.decisions.getNextCard();
     console.log(this.currentCard);
   }
+
+  private clickLeft() {
+    alert("Click left");
+  }
+
+  private clickRight() {
+    alert("Click right");
+  }
 }
