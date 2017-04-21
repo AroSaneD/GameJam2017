@@ -71,6 +71,10 @@ export class AppComponent {
   }
 
   dragImageEnd() {
+    if (!this.isDragging) {
+      return;
+    }
+
     this.isDragging = false;
     if (this.cardXCoordinate >= 0) {
       this.clickRight();
