@@ -24,7 +24,6 @@ export class AppComponent {
   currentCard: Card;
   decisions: DecisionTree;
 
-  constructor(private cardService: CardService, private pointsService: PointsService) {
   cardXCoordinate: number = 0;
 
   private get cardRotation(): number {
@@ -39,8 +38,7 @@ export class AppComponent {
 
   //@ViewChild('playingCard') cardRef: ElementRef;
 
-  constructor(private cardService: CardService) {
-
+  constructor(private cardService: CardService, private pointsService: PointsService) {
     console.log("starting");
     cardService.getAllCards().subscribe(cards => {
       this.decisions = new DecisionTree(cards);
