@@ -27,16 +27,37 @@ body {
 
 .card {
     border-radius: 3px;
-    background-color: white;
+    background-color: transparent;
 }
 
 .question-placeholder {
     padding: 10px;
-    background-color: black;
-    color: white
+    /*background-color: black;*/
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+    min-height: 150px;
 }
 
 .blue-background {
     background-color: #3a57d8;
     color: white;
+}
+
+.card {
+    position: relative;
+    border: none;
+}
+
+.card img {
+    width: 100%;
+    height: 450px;
+}
+
+.answer {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    position: absolute;
+    width: 100%;
 }
