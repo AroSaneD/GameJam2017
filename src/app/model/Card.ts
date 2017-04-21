@@ -6,6 +6,9 @@ export class Card {
 
     question: string;
 
+    leftText: string;
+    rightText: string;
+
     onLeft: Array<number>;
     onRight: Array<number>;
     onIgnore: Array<number>;

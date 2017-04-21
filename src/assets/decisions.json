@@ -5,7 +5,6 @@
     "rightText": "But...",
     "onLeft": [20, -5, -5, -15],
     "onRight": [-5, 0, 5, 10],
-    //"onIgnore": [0, 0, 0, 0],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -17,8 +16,7 @@
     "rightText": "Budget too low, sorry.",
     "onLeft": [25, 0, -5, -15],
     "onRight": [-20, 10, 10, 10],
-    //"onIgnore": [0, 0, 0, 0],
-    "requiredResponses": [0, true],
+    "requiredResponses": [{"cardId": 0, "swipedLeft": true}],
     "requiredStats": [],
     "cardFamily": null
   },
@@ -29,7 +27,6 @@
     "rightText": "So?",
     "onLeft": [0, -5, -5, 5],
     "onRight": [0, 0, 5, -5],
-    //"onIgnore": [0, 0, 0, 0],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null

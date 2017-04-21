@@ -1,7 +1,7 @@
 import { Card } from './Card';
 
 export class CardResponse {
-    constructor(public card: number, response?: boolean) {
+    constructor(public cardId: number, public swipedLeft?: boolean) {
 
     }
 }

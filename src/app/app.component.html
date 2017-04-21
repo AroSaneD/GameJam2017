@@ -27,21 +27,31 @@
       </div>
     </div>
 
-    <div class="content-placeholder">
-      <div class="question-placeholder">
-        question
+    <div *ngIf="currentCard">
+      <div class="content-placeholder">
+        <div class="question-placeholder">
+          {{currentCard.question}}
+        </div>
       </div>
-    </div>
 
-    <div class="content-placeholder">
-      <div class="card">
-        <!--Image-->
+      <div class="content-placeholder">
+        <div class="card">
+          <!--Image-->
+        </div>
       </div>
-    </div>
-    <div class="text-center">
-      <p>
-        Swipe
-      </p>
+      <div class="text-center">
+        <p>
+          Swipe
+        </p>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-primary">{{currentCard.leftText}}</button>
+          </div>
+          <div class="col">
+            <button class="btn btn-primary">{{currentCard.rightText}}</button>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>
