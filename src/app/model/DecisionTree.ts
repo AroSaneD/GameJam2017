@@ -46,7 +46,7 @@ export class DecisionTree {
 
 
     madeDecisions(card: Card, response?: boolean) {
-        throw new Error('Not implemented');
+        this.completedCardResponses.push(new CardResponse(card.id, response));
     }
 
 }
