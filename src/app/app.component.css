@@ -5,7 +5,7 @@ body {
 
 .background-wrapper {
     background-color: #468fc1;
-    padding: 50px 0px;
+    /*padding: 50px 0px;*/
     background: url('/src/assets/main-background.jpg');
 }
 
@@ -36,7 +36,7 @@ body {
     color: black;
     font-weight: 600;
     font-size: 18px;
-    min-height: 150px;
+    min-height: 100px;
 }
 
 .blue-background {
