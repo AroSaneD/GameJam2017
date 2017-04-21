@@ -1,0 +1,34 @@
+[{
+    "id": 0,
+    "question": "You notice you can save funds by firing the school psychiatrist.",
+    "leftText": "Cya!",
+    "rightText": "But...",
+    "onLeft": [20, -5, -5, -15],
+    "onRight": [-5, 0, 5, 10],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
+    "id": 1,
+    "question": "A teacher tells you that one her studens is acting very depressed and that a school should hire a new psychiatrist.",
+    "leftText": "Anything for the kids!",
+    "rightText": "Budget too low, sorry.",
+    "onLeft": [25, 0, -5, -15],
+    "onRight": [-20, 10, 10, 10],
+    "requiredResponses": [{"cardId": 0, "swipedLeft": true}],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
+    "id": 2,
+    "question": "One of the students complaied the gym teacher is always yelling on all the students.",
+    "leftText": "Enforce order",
+    "rightText": "So?",
+    "onLeft": [0, -5, -5, 5],
+    "onRight": [0, 0, 5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  }
+]

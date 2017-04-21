@@ -27,11 +27,21 @@
       </div>
     </div>
 
+    <div *ngIf="currentCard">
     <div class="content-placeholder">
       <div class="question-placeholder">
-        question
+          {{currentCard.question}}
       </div>
     </div>
+
+      <div class="row text-center">
+        <div class="col">
+          <button (click)="clickLeft()" class="btn btn-primary">{{currentCard.leftText}}</button>
+        </div>
+        <div class="col">
+          <button (click)="clickRight()" class="btn btn-primary">{{currentCard.rightText}}</button>
+        </div>
+      </div>
 
     <div class="content-placeholder">
       <div class="card">
@@ -46,6 +56,7 @@
       <p>
         Swipe
       </p>
+    </div>
     </div>
 
   </div>
