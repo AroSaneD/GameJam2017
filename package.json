@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "install": "npm install",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -42,5 +43,5 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.2.0"
-  }
+  }  
 }
