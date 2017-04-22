@@ -1,28 +1,61 @@
-[{
+[
+  {
     "id": 0,
     "question": "You notice you can save funds by firing the school psychiatrist.",
     "leftText": "Fire",
     "rightText": "But...",
-    "onLeft": [20, -5, -5, -15],
-    "onRight": [-5, 0, 5, 10],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      20,
+      -5,
+      -5,
+      -15
+    ],
+    "onRight": [
+      -5,
+      0,
+      5,
+      10
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
-    "image": "TeacherMan.png" 
+    "image": "TeacherMan.png"
   },
   {
     "id": 1,
     "question": "A teacher tells you that one her studens is acting very depressed and that a school should hire a new psychiatrist.",
     "leftText": "Anything for the kids!",
     "rightText": "Budget too low, sorry.",
-    "onLeft": [25, 0, -5, -15],
-    "onRight": [-20, 10, 10, 10],
-    "onIgnore": [-5, -5, -5, -5],
-    "requiredResponses": [{
-      "cardId": 0,
-      "swipedLeft": true
-    }],
+    "onLeft": [
+      25,
+      0,
+      -5,
+      -15
+    ],
+    "onRight": [
+      -20,
+      10,
+      10,
+      10
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+      {
+        "cardId": 0,
+        "swipedLeft": true
+      }
+    ],
     "requiredStats": [],
     "cardFamily": null,
     "image": "StudentWoman.png"
@@ -32,9 +65,24 @@
     "question": "One of the students complaied the gym teacher is always yelling on all the students.",
     "leftText": "Enforce order",
     "rightText": "So?",
-    "onLeft": [0, -5, -5, 5],
-    "onRight": [0, 0, 5, -5],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      0,
+      -5,
+      -5,
+      5
+    ],
+    "onRight": [
+      0,
+      0,
+      5,
+      -5
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
@@ -45,9 +93,24 @@
     "question": "Teacher got sick and there is no substitute.",
     "leftText": "Hire substitute teacher.",
     "rightText": "Give students self learning class.",
-    "onLeft": [-5, 3, -5, -3],
-    "onRight": [0, 0, -10, -5],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      -5,
+      3,
+      -5,
+      -3
+    ],
+    "onRight": [
+      0,
+      0,
+      -10,
+      -5
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
@@ -58,13 +121,30 @@
     "question": "Teacher is back from sick leave.",
     "leftText": "Fire the substitute teacher.",
     "rightText": "The substitute teacher stays.",
-    "onLeft": [5, -3, -5, -5],
-    "onRight": [0, 0, -5, 5],
-    "onIgnore": [-5, -5, -5, -5],
-    "requiredResponses": [{
-      "cardId": 3,
-      "swipedLeft": true
-    }],
+    "onLeft": [
+      5,
+      -3,
+      -5,
+      -5
+    ],
+    "onRight": [
+      0,
+      0,
+      -5,
+      5
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+      {
+        "cardId": 3,
+        "swipedLeft": true
+      }
+    ],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherWoman.png"
@@ -74,9 +154,24 @@
     "question": "A student wants to teach others instead of a teacher for a class.",
     "leftText": "Great idea!",
     "rightText": "Children can't be trusted.",
-    "onLeft": [3, 3, -10, 5],
-    "onRight": [0, 0, 5, -10],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      3,
+      3,
+      -10,
+      5
+    ],
+    "onRight": [
+      0,
+      0,
+      5,
+      -10
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
@@ -87,9 +182,24 @@
     "question": "You hear that a student is constantly getting verbal abuse from others.",
     "leftText": "It's just words...",
     "rightText": "It must stop!",
-    "onLeft": [0, 0, -5, -5],
-    "onRight": [0, 0, 5, -5],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      0,
+      0,
+      -5,
+      -5
+    ],
+    "onRight": [
+      0,
+      0,
+      5,
+      -5
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
@@ -100,13 +210,30 @@
     "question": "The student has been beaten up.",
     "leftText": "The bullies will be punished.",
     "rightText": "The student needs help.",
-    "onLeft": [0, 0, 10, 3],
-    "onRight": [3, 3, 0, 5],
-    "onIgnore": [-5, -5, -5, -5],
-    "requiredResponses": [{
-      "cardId": 6,
-      "swipedLeft": true
-    }],
+    "onLeft": [
+      0,
+      0,
+      10,
+      3
+    ],
+    "onRight": [
+      3,
+      3,
+      0,
+      5
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+      {
+        "cardId": 6,
+        "swipedLeft": true
+      }
+    ],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherMan.png"
@@ -116,9 +243,24 @@
     "question": "One of the student come to you and said that there are bullying in her class but teacher pretends not to care because bullers are popular kids.",
     "leftText": "Talk with the teacher about the situation.",
     "rightText": "A student is imagining.",
-    "onLeft": [0, -15, 10, 10],
-    "onRight": [0, 15, -5, -20],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      0,
+      -15,
+      10,
+      10
+    ],
+    "onRight": [
+      0,
+      15,
+      -5,
+      -20
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
@@ -129,9 +271,24 @@
     "question": "One student gives you an idea to participate in a contest to win partial funding for gym reniewal.",
     "leftText": "There are other people who need these money more.",
     "rightText": "That's a good idea.",
-    "onLeft": [-15, 3, 0, 20],
-    "onRight": [0, 0, 0, -20],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      -15,
+      3,
+      0,
+      20
+    ],
+    "onRight": [
+      0,
+      0,
+      0,
+      -20
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
@@ -142,9 +299,24 @@
     "question": "You come to talk to art teacher during club activity and saw some students drawing intensly.",
     "leftText": "You got an idea to make their work exhibition in school.",
     "rightText": "You praise students works.",
-    "onLeft": [-5, 1, 0, 6],
-    "onRight": [0, 0, 2, 2],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      -5,
+      1,
+      0,
+      6
+    ],
+    "onRight": [
+      0,
+      0,
+      2,
+      2
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
@@ -155,13 +327,30 @@
     "question": "You hear two teachers gossip bad about you because of the accident when you scolded a teacher that didn't see the bullying.",
     "leftText": "You walk in on them and ask to talk about it face to face.",
     "rightText": "You walk away and plan all teacher meeting with psychologist about bullying.",
-    "onLeft": [0, -10, 17, 0],
-    "onRight": [-5, 5, 10, 5],
-    "onIgnore": [-5, -5, -5, -5],
-    "requiredResponses": [{
-      "cardId": 9,
-      "swipedLeft": true
-    }],
+    "onLeft": [
+      0,
+      -10,
+      17,
+      0
+    ],
+    "onRight": [
+      -5,
+      5,
+      10,
+      5
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+      {
+        "cardId": 9,
+        "swipedLeft": true
+      }
+    ],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherWoman.png"
@@ -171,40 +360,91 @@
     "question": "You got a letter from Board of Education that there are teachers who complain about you.",
     "leftText": "You assemble all the teachers and tell them about the current situation.",
     "rightText": "You assemble all the teachers and talk with them about the current situation.",
-    "onLeft": [0, -5, 12, -8],
-    "onRight": [0, -5, -3, 2],
-    "onIgnore": [-5, -5, -5, -5],
-    "requiredResponses": [{
-      "cardId": 12,
-      "swipedRight": true
-    }],
+    "onLeft": [
+      0,
+      -5,
+      12,
+      -8
+    ],
+    "onRight": [
+      0,
+      -5,
+      -3,
+      2
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+      {
+        "cardId": 12,
+        "swipedRight": true
+      }
+    ],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherMan.png"
-  }, {
+  },
+  {
     "id": 14,
     "question": "You notice one of the teachers isn't doing his job correctly, but the student body respects and adores him.",
     "leftText": "Fire the teacher.",
     "rightText": "Let him stay.",
-    "onLeft": [0, -10, -15, -15],
-    "onRight": [-5, 5, 10, 10],
-    "onIgnore": [-5, -5, -5, -5],
+    "onLeft": [
+      0,
+      -10,
+      -15,
+      -15
+    ],
+    "onRight": [
+      -5,
+      5,
+      10,
+      10
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherMan.png"
-  }, {
+  },
+  {
     "id": 15,
     "question": "A student parent came to you saying that her child often cames back crying because her teacher recently became often angry and yells at her and her classmates.",
     "leftText": "You call said teacher and talk about it.",
     "rightText": "You fire said teacher.",
-    "onLeft": [0, -7, 13, 5],
-    "onRight": [20, -23, 19, 18],
-    "onIgnore": [-5, -5, -5, -5],
-    "requiredResponses": [{
-      "cardId": 12,
-      "swipedLeft": true
-    }],
+    "onLeft": [
+      0,
+      -7,
+      13,
+      5
+    ],
+    "onRight": [
+      20,
+      -23,
+      19,
+      18
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+      {
+        "cardId": 12,
+        "swipedLeft": true
+      }
+    ],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherWoman.png"
