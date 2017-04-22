@@ -1,7 +1,7 @@
 [{
     "id": 0,
     "question": "You notice you can save funds by firing the school psychiatrist.",
-    "leftText": "Cya!",
+    "leftText": "Fire",
     "rightText": "But...",
     "onLeft": [20, -5, -5, -15],
     "onRight": [-5, 0, 5, 10],
@@ -80,7 +80,7 @@
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
-    "image": "TeacherMan.png"
+    "image": "Kid.png"
   },
   {
     "id": 6,
@@ -97,7 +97,7 @@
   },
   {
     "id": 7,
-    "question": "The student from has been beaten up.",
+    "question": "The student has been beaten up.",
     "leftText": "The bullies will be punished.",
     "rightText": "The student needs help.",
     "onLeft": [0, 0, 10, 3],
@@ -112,7 +112,7 @@
     "image": "TeacherMan.png"
   },
   {
-    "id": 900,
+    "id": 9,
     "question": "One of the student come to you and said that there are bullying in her class but teacher pretends not to care because bullers are popular kids.",
     "leftText": "Talk with the teacher about the situation.",
     "rightText": "A student is imagining.",
@@ -125,7 +125,7 @@
     "image": "TeacherMan.png"
   },
   {
-    "id": 901,
+    "id": 10,
     "question": "One student gives you an idea to participate in a contest to win partial funding for gym reniewal.",
     "leftText": "There are other people who need these money more.",
     "rightText": "That's a good idea.",
@@ -138,7 +138,7 @@
     "image": "TeacherMan.png"
   },
   {
-    "id": 902,
+    "id": 11,
     "question": "You come to talk to art teacher during club activity and saw some students drawing intensly.",
     "leftText": "You got an idea to make their work exhibition in school.",
     "rightText": "You praise students works.",
@@ -151,7 +151,7 @@
     "image": "TeacherMan.png"
   },
   {
-    "id": 903,
+    "id": 12,
     "question": "You hear two teachers gossip bad about you because of the accident when you scolded a teacher that didn't see the bullying.",
     "leftText": "You walk in on them and ask to talk about it face to face.",
     "rightText": "You walk away and plan all teacher meeting with psychologist about bullying.",
@@ -159,7 +159,7 @@
     "onRight": [-5, 5, 10, 5],
     "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [{
-      "cardId": 900,
+      "cardId": 9,
       "swipedLeft": true
     }],
     "requiredStats": [],
@@ -167,23 +167,7 @@
     "image": "TeacherWoman.png"
   },
   {
-    "id": 904,
-    "question": "A student parent came to you saying that her child often cames back crying because her teacher recently became often angry and yells at her and her classmates.",
-    "leftText": "You call said teacher and talk about it.",
-    "rightText": "You fire said teacher.",
-    "onLeft": [0, -7, 13, 5],
-    "onRight": [20, -23, 19, 18],
-    "onIgnore": [-5, -5, -5, -5],
-    "requiredResponses": [{
-      "cardId": 903,
-      "swipedLeft": true
-    }],
-    "requiredStats": [],
-    "cardFamily": null,
-    "image": "TeacherWoman.png"
-  },
-  {
-    "id": 905,
+    "id": 13,
     "question": "You got a letter from Board of Education that there are teachers who complain about you.",
     "leftText": "You assemble all the teachers and tell them about the current situation.",
     "rightText": "You assemble all the teachers and talk with them about the current situation.",
@@ -191,14 +175,14 @@
     "onRight": [0, -5, -3, 2],
     "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [{
-      "cardId": 903,
+      "cardId": 12,
       "swipedRight": true
     }],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherMan.png"
   }, {
-    "id": 700,
+    "id": 14,
     "question": "You notice one of the teachers isn't doing his job correctly, but the student body respects and adores him.",
     "leftText": "Fire the teacher.",
     "rightText": "Let him stay.",
@@ -209,5 +193,20 @@
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherMan.png"
+  }, {
+    "id": 15,
+    "question": "A student parent came to you saying that her child often cames back crying because her teacher recently became often angry and yells at her and her classmates.",
+    "leftText": "You call said teacher and talk about it.",
+    "rightText": "You fire said teacher.",
+    "onLeft": [0, -7, 13, 5],
+    "onRight": [20, -23, 19, 18],
+    "onIgnore": [-5, -5, -5, -5],
+    "requiredResponses": [{
+      "cardId": 12,
+      "swipedLeft": true
+    }],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "TeacherWoman.png"
   }
 ]
