@@ -5,8 +5,6 @@ export class DecisionTree {
 
     completedCardResponses: Array<CardResponse>;
 
-    ;
-
     constructor(public loadedCards: Array<Card>) {
         this.completedCardResponses = [];
     }

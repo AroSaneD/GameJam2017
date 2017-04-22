@@ -48,11 +48,13 @@ body {
 .card {
   position: relative;
   border: none;
+    width: 80%;
+    margin: auto;
 }
 
 .card img {
   width: 100%;
-  height: 450px;
+    /*height: 450px;*/
 }
 
 .answer {
@@ -61,6 +63,11 @@ body {
   padding: 10px;
   position: absolute;
   width: 100%;
+}
+
+.progress-bar {
+    background-color: rgb(193, 193, 193)
+}
 }
 
 

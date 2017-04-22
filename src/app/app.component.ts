@@ -7,6 +7,8 @@ import 'rxjs';
 import { CardService } from './services/CardService';
 import { PointsService } from './services/PointsService';
 
+declare var $: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -58,6 +60,7 @@ export class AppComponent {
       console.log(cards);
       this.setup(cards);
     });
+
   }
 
   private setup(cards: Array<Card>) {
@@ -65,16 +68,37 @@ export class AppComponent {
     console.log(this.currentCard);
   }
 
+  private startNewGame() {
+    this.pointsService.points = [50, 50, 50, 50];
+    this.pointsService.turnsPassed = 0;
+    this.decisions.completedCardResponses = [];
+  }
+
   private clickLeft() {
-    this.pointsService.addPoints(this.currentCard.onLeft);
-    this.decisions.madeDecisions(this.currentCard, true);
-    this.currentCard = this.decisions.getNextCard();
+    let isGameEnd = this.pointsService.addPoints(this.currentCard.onLeft);
+    if (!isGameEnd) {
+      this.decisions.madeDecisions(this.currentCard, true);
+      this.currentCard = this.decisions.getNextCard();
+    } else {
+      this.displayDialog();
+    }
   }
 
   private clickRight() {
-    this.pointsService.addPoints(this.currentCard.onRight);
-    this.decisions.madeDecisions(this.currentCard, false);
-    this.currentCard = this.decisions.getNextCard();
+    let isGameEnd = this.pointsService.addPoints(this.currentCard.onRight);
+    if (!isGameEnd) {
+      this.decisions.madeDecisions(this.currentCard, false);
+      this.currentCard = this.decisions.getNextCard();
+    } else {
+      this.displayDialog();
+    }
+  }
+
+  displayDialog() {
+    $('#endGameModal').modal({
+      keyboard: false,
+      backdrop: 'static'
+    });
   }
 
   dragImageStart() {
