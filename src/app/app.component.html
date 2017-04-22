@@ -1,7 +1,7 @@
 <div class="background-wrapper" (mousemove)="dragImage($event)" (touchmove)="touchMove($event)" (mouseup)="dragImageEnd($event)"
   (touchend)="touchEnd($event)">
 
-  <div class="game-wrapper">
+  <div class="game-wrapper" [style.overflow-y]="isDragging ? 'hidden' : 'auto'">
 
     <div class="progress turn-duration-progress-bar">
       <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="currentTurnDurationPercentage + '%'" aria-valuemin="0"
