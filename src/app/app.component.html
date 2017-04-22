@@ -1,4 +1,6 @@
-<div class="background-wrapper">
+<div class="background-wrapper" (mousemove)="dragImage($event)" (touchmove)="dragImage($event)" (mouseup)="dragImageEnd($event)"
+  (touchend)="dragImageEnd($event)">
+
 
   <div class="game-wrapper">
 
@@ -28,11 +30,11 @@
     </div>
 
     <div *ngIf="currentCard">
-    <div class="content-placeholder">
-      <div class="question-placeholder">
+      <div class="content-placeholder">
+        <div class="question-placeholder">
           {{currentCard.question}}
+        </div>
       </div>
-    </div>
 
       <div class="row text-center">
         <div class="col">
@@ -43,20 +45,21 @@
         </div>
       </div>
 
-    <div class="content-placeholder">
-      <div class="card">
-        <div class="answer">
-          answer
+      <div class="content-placeholder">
+        <div [ngStyle]="{ 'left': cardXCoordinate + 'px', 'transform': 'rotate(' + cardRotation + 'deg)', 'top': cardYCoordinate + 'px' }"
+          class="card" (mousedown)="dragImageStart()" (touchstart)="dragImageStart()">
+          <div class="answer">
+            answer
+          </div>
+          <img src="/src/assets/Kid.png" draggable="false">
+          <!--Image-->
         </div>
-        <img src="/src/assets/kid.png" draggable="false">
-        <!--Image-->
       </div>
-    </div>
-    <div class="text-center">
-      <p>
-        Swipe
-      </p>
-    </div>
+      <div class="text-center">
+        <p>
+          Swipe
+        </p>
+      </div>
     </div>
 
   </div>
