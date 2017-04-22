@@ -20,6 +20,12 @@ export class AppComponent {
   private readonly maxRotation: number = 5;
   private readonly maxYOffset: number = 40;
 
+  private readonly maxCancelRangePercentage: number = 0.19;
+
+  private get maxCancelRange(): number {
+    return this.maxXOffset * this.maxCancelRangePercentage;
+  }
+
   title = 'app works12313!';
   currentCard: Card;
   decisions: DecisionTree;
@@ -88,7 +94,7 @@ export class AppComponent {
     }
 
     this.isDragging = false;
-    if (Math.abs(this.cardXCoordinate) < 25) {
+    if (Math.abs(this.cardXCoordinate) < this.maxCancelRange) {
       //return;
     }
     else {
