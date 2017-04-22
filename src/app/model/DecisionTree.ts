@@ -14,7 +14,7 @@ export class DecisionTree {
         let unplayedCards = this.getAvailableCards();
 
         if (unplayedCards && unplayedCards.length > 0) {
-            return unplayedCards[0];
+            return unplayedCards[Math.floor(Math.random() * unplayedCards.length)];
         }
 
         return null;

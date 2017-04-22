@@ -110,10 +110,15 @@ export class AppComponent {
     }
 
     this.isDragging = false;
-    if (this.cardXCoordinate >= 0) {
-      this.clickRight();
-    } else {
-      this.clickLeft();
+    if (Math.abs(this.cardXCoordinate) < 25) {
+      //return;
+    }
+    else {
+      if (this.cardXCoordinate >= 0) {
+        this.clickRight();
+      } else {
+        this.clickLeft();
+      }
     }
 
     //this.cardXCoordinate = 0;
