@@ -410,5 +410,34 @@
     "requiredStats": [],
     "cardFamily": null,
     "image": "BadKid.png"
+  },
+  {
+    "id": 19,
+    "question": "Students like newly assigned teacher, but she wants bigger salary.",
+    "leftText": "Ignore the request.",
+    "rightText": "Raise the salary.",
+    "onLeft": [
+      0,
+      -15,
+      -10,
+      -10
+    ],
+    "onRight": [
+      -20,
+      5,
+      10,
+      5
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+    ],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "TeacherWoman.png"
   }
 ]
