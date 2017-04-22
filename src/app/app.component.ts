@@ -22,6 +22,8 @@ export class AppComponent {
 
   private readonly maxCancelRangePercentage: number = 0.19;
 
+  private readonly turnDurationInMilliseconds: number = 10000;
+
   private get maxCancelRange(): number {
     return this.maxXOffset * this.maxCancelRangePercentage;
   }
@@ -53,6 +55,8 @@ export class AppComponent {
 
   isDragging: boolean;
 
+  currentTurnDuration: number;
+
   constructor(private cardService: CardService, private pointsService: PointsService) {
     console.log("starting");
     cardService.getAllCards().subscribe(cards => {
@@ -65,33 +69,46 @@ export class AppComponent {
 
   private setup(cards: Array<Card>) {
     this.currentCard = this.decisions.getNextCard();
-    console.log(this.currentCard);
+    this.startNewGame();
   }
 
   private startNewGame() {
     this.pointsService.points = [50, 50, 50, 50];
     this.pointsService.turnsPassed = 0;
     this.decisions.completedCardResponses = [];
+
+    // let intervalId = setInterval(() => {
+    //   this.currentTurnDuration += 10;
+    //   if ()
+    // }, 10);
   }
 
   private clickLeft() {
+    this.decisions.madeDecisions(this.currentCard, true);
     let isGameEnd = this.pointsService.addPoints(this.currentCard.onLeft);
-    if (!isGameEnd) {
-      this.decisions.madeDecisions(this.currentCard, true);
-      this.currentCard = this.decisions.getNextCard();
-    } else {
-      this.displayDialog();
-    }
+    this.playerResponded(isGameEnd);
   }
 
   private clickRight() {
+    this.decisions.madeDecisions(this.currentCard, false);
     let isGameEnd = this.pointsService.addPoints(this.currentCard.onRight);
-    if (!isGameEnd) {
-      this.decisions.madeDecisions(this.currentCard, false);
-      this.currentCard = this.decisions.getNextCard();
-    } else {
+    this.playerResponded(isGameEnd);
+  }
+
+  private clickIgnore() {
+    this.decisions.madeDecisions(this.currentCard, false);
+    let isGameEnd = this.pointsService.addPoints(this.currentCard.onIgnore);
+    this.playerResponded(isGameEnd);
+  }
+
+  private playerResponded(isGameEnd: boolean) {
+    if (isGameEnd) {
       this.displayDialog();
+      return;
     }
+
+    this.currentCard = this.decisions.getNextCard();
+
   }
 
   displayDialog() {
