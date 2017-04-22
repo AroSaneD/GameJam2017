@@ -101,6 +101,32 @@ export class AppComponent {
     });
   }
 
+  private lastTouch: Touch;
+  touchStart(): void {
+    this.dragImageStart();
+  }
+
+  touchEnd(): void {
+    this.lastTouch = null;
+    this.dragImageEnd();
+  }
+
+  touchMove(event: TouchEvent): void {
+    if (!this.isDragging) {
+      return;
+    }
+
+    if (!this.lastTouch) {
+      this.lastTouch = event.touches[0];
+      return;
+    }
+
+    let smoothnessMultiplier = 0.2;
+    var xOffset = (event.touches[0].clientX - this.lastTouch.clientX) * smoothnessMultiplier;
+    var yOffset = (event.touches[0].clientY - this.lastTouch.clientY) * smoothnessMultiplier;
+    this.dragImageBackEnd(xOffset, yOffset);
+  }
+
   dragImageStart() {
     this.isDragging = true;
   }
@@ -145,32 +171,6 @@ export class AppComponent {
     }
 
     this.cardXCoordinate += xOffset;
-  }
-
-  private lastTouch: Touch;
-  touchStart(): void {
-    this.dragImageStart();
-  }
-
-  touchEnd(): void {
-    this.lastTouch = null;
-    this.dragImageEnd();
-  }
-
-  touchMove(event: TouchEvent): void {
-    if (!this.isDragging) {
-      return;
-    }
-
-    if (!this.lastTouch) {
-      this.lastTouch = event.touches[0];
-      return;
-    }
-
-    let smoothnessMultiplier = 0.2;
-    var xOffset = (event.touches[0].clientX - this.lastTouch.clientX) * smoothnessMultiplier;
-    var yOffset = (event.touches[0].clientY - this.lastTouch.clientY) * smoothnessMultiplier;
-    this.dragImageBackEnd(xOffset, yOffset);
   }
 
 }
