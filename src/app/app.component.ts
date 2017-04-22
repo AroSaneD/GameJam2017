@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Card } from './model/Card';
 import { DecisionTree } from './model/DecisionTree';
 import { Http } from '@angular/http';
@@ -15,7 +15,7 @@ declare var $: any;
   styleUrls: ['./app.component.css'],
   providers: [CardService, PointsService]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   private readonly maxXOffset: number = 130;
   private readonly maxRotation: number = 5;
   private readonly maxYOffset: number = 40;
@@ -69,6 +69,10 @@ export class AppComponent {
 
   }
 
+  ngAfterViewInit() {
+    $('.game-wrapper').css('height', (window.innerHeight - 56) + 'px');
+  }
+
   private setup(cards: Array<Card>) {
     this.currentCard = this.decisions.getNextCard();
     this.startNewGame();
@@ -88,32 +92,30 @@ export class AppComponent {
 
   private clickLeft() {
     let endScenario = this.pointsService.addPoints(this.currentCard.onLeft);
-    if (!endScenario) {
-      console.log(endScenario);
-      this.decisions.madeDecisions(this.currentCard, true);
-      this.currentCard = this.decisions.getNextCard();
-    } else {
-      this.endScenario = endScenario;
-      this.displayDialog();
+    this.decisions.madeDecisions(this.currentCard, true);
+    this.playerResponded(endScenario);
   }
 
   private clickRight() {
     let endScenario = this.pointsService.addPoints(this.currentCard.onRight);
-    if (!endScenario != null) {
     this.decisions.madeDecisions(this.currentCard, false);
-    let isGameEnd = this.pointsService.addPoints(this.currentCard.onIgnore);
-    this.playerResponded(isGameEnd);
+    this.playerResponded(endScenario);
   }
 
-  private playerResponded(isGameEnd: boolean) {
+  private clickIgnore() {
+    let endScenario = this.pointsService.addPoints(this.currentCard.onIgnore);
+    this.decisions.madeDecisions(this.currentCard, null);
+    this.playerResponded(endScenario);
+  }
+
+  private playerResponded(isGameEnd: EndScenario) {
     if (isGameEnd) {
-      this.endScenario = endScenario;
+      this.endScenario = isGameEnd;
       this.displayDialog();
       return;
     }
 
     this.currentCard = this.decisions.getNextCard();
-
   }
 
   displayDialog() {

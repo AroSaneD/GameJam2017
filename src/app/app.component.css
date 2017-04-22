@@ -11,7 +11,6 @@ body {
 
 .game-wrapper {
   background-color: rgba(93, 93, 93, 0.34);
-  min-height: 800px;
   max-width: 500px;
   margin: auto;
   border: 3px solid rgba(93, 93, 93, 0.34);
@@ -19,9 +18,9 @@ body {
 }
 
 .options-wrapper {
-    max-width: 500px;
-    padding: 10px;
-    margin: auto;
+  max-width: 500px;
+  padding: 10px;
+  margin: auto;
 }
 
 .content-placeholder {
@@ -77,21 +76,18 @@ body {
 }
 
 .progress-bar {
-    background-color: rgb(193, 193, 193)
+  background-color: rgb(193, 193, 193)
 }
 
 .fa {
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }
 
 .fa-2 {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
-  background-color: rgb(193, 193, 193);
-}
-
 
 /*Overrides*/
 
