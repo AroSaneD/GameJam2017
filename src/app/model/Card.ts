@@ -14,6 +14,8 @@ export class Card {
     onIgnore: Array<number>;
 
     requiredResponses: Array<CardResponse>;
+    isImmediate: boolean;
+
     cardFamily?: number;
 
 }

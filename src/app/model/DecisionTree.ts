@@ -41,6 +41,12 @@ export class DecisionTree {
             return shouldPlay;
         });
 
+        let immediateCards = availableUnplayedCards.filter(c => c.isImmediate);
+
+        if(immediateCards && immediateCards.length > 0){
+            return immediateCards;
+        }
+
         return availableUnplayedCards;
     }
 
