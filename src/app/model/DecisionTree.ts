@@ -27,18 +27,20 @@ export class DecisionTree {
         let unplayedCards = this.loadedCards.filter(c => !this.completedCardResponses.some(r => r.cardId === c.id));
 
         let availableUnplayedCards = unplayedCards.filter(unplayedCard => {
+            let shouldPlay = true;
             unplayedCard.requiredResponses.forEach(requiredResponse => {
+
                 let matchExists = this.completedCardResponses.some(existingResponse => {
                     return existingResponse.cardId === requiredResponse.cardId &&
                         existingResponse.swipedLeft === requiredResponse.swipedLeft;
                 });
 
                 if (!matchExists) {
-                    return false;
+                    shouldPlay = false;
                 }
             });
 
-            return true;
+            return shouldPlay;
         });
 
         return availableUnplayedCards;
