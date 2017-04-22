@@ -1,5 +1,5 @@
-<div class="background-wrapper" (mousemove)="dragImage($event)" (touchmove)="dragImage($event)" (mouseup)="dragImageEnd($event)"
-  (touchend)="dragImageEnd($event)">
+<div class="background-wrapper" (mousemove)="dragImage($event)" (touchmove)="touchMove($event)" (mouseup)="dragImageEnd($event)"
+  (touchend)="touchEnd($event)">
 
 
   <div class="game-wrapper">
@@ -47,7 +47,7 @@
 
       <div class="content-placeholder">
         <div [ngStyle]="{ 'left': cardXCoordinate + 'px', 'transform': 'rotate(' + cardRotation + 'deg)', 'top': cardYCoordinate + 'px' }"
-          class="card" (mousedown)="dragImageStart()" (touchstart)="dragImageStart()">
+          class="card" (mousedown)="dragImageStart()" (touchstart)="touchStart()">
           <div class="answer">
             answer
           </div>

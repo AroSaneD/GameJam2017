@@ -111,12 +111,41 @@ export class AppComponent {
       return;
     }
 
-    if (Math.abs(this.cardXCoordinate + event.movementX) > this.maxXOffset) {
+    this.dragImageBackEnd(event.movementX, event.movementY);
+  }
+
+  dragImageBackEnd(xOffset: number, yOffset: number) {
+    if (Math.abs(this.cardXCoordinate + xOffset) > this.maxXOffset) {
       this.cardXCoordinate += (this.maxXOffset - Math.abs(this.cardXCoordinate)) * Math.sign(this.cardXCoordinate);
       return;
     }
 
-    this.cardXCoordinate += event.movementX;
+    this.cardXCoordinate += xOffset;
+  }
+
+  private lastTouch: Touch;
+  touchStart(): void {
+    this.dragImageStart();
+  }
+
+  touchEnd(): void {
+    this.lastTouch = null;
+    this.dragImageEnd();
+  }
+
+  touchMove(event: TouchEvent): void {
+    if (!this.isDragging) {
+      return;
+    }
+
+    if (!this.lastTouch) {
+      this.lastTouch = event.touches[0];
+      return;
+    }
+
+    var xOffset = event.touches[0].pageX - this.lastTouch.pageX;
+    var yOffset = event.touches[0].pageY - this.lastTouch.pageY;
+    this.dragImageBackEnd(xOffset, yOffset);
   }
 
 }
