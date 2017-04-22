@@ -202,12 +202,10 @@
     "leftText": "Talk will all the teachers.",
     "rightText": "Fire the ones that complaied.",
     "onLeft": [
-      0, 5,
-      -5, 0
+      0, 5, -5, 0
     ],
     "onRight": [
-      10, -10, 10,
-      -10
+      10, -10, 10, -10
     ],
     "onIgnore": [0, 0, -5, 0],
     "requiredResponses": [{
@@ -267,62 +265,42 @@
   },
   {
     "id": 16,
-    "question": "School student council decided to make bullying prevention week and asks money for events.",
+    "question": "School student council decided to organize a bullying prevention week and asks funding.",
     "leftText": "Agree.",
     "rightText": "Disagree.",
-    "onLeft": [
-      -10,
-      -5,
+    "onLeft": [-10, -5,
       5,
       5
     ],
     "onRight": [
-      0,
-      -10,
-      -10,
-      -20
+      0, -10, -10, -20
     ],
     "onIgnore": [
-      -5,
-      -5,
-      -5,
-      -5
+      0, -10, -10, -20
     ],
-    "requiredResponses": [
-    ],
+    "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
     "image": "StudentWoman.png"
   },
   {
     "id": 17,
-    "question": "School student council made a claim at child care organization claiming that school director don't give funding for certain events.",
+    "question": "School student council made a claim at child care organization claiming that school director doesn't care about bullying.",
     "leftText": "Explain the situation and rethink funding plans.",
     "rightText": "Deny everything.",
-    "onLeft": [
-      -10,
+    "onLeft": [-10,
       10,
       10,
       0
     ],
     "onRight": [
-      0,
-      -10,
-      -15,
-      -15
+      0, -10, -15, -15
     ],
-    "onIgnore": [
-      -5,
-      -5,
-      -5,
-      -5
-    ],
-    "requiredResponses": [
-      {
-        "cardId": 16,
-        "swipedLeft": true
-  }
-    ],
+    "onIgnore": [-5, -5, -5, -5],
+    "requiredResponses": [{
+      "cardId": 16,
+      "swipedLeft": true
+    }],
     "isImmidiate": true,
     "requiredStats": [],
     "cardFamily": null,
@@ -330,29 +308,13 @@
   },
   {
     "id": 18,
-    "question": "Cleaner finds out that some students were ruining school inventory.",
+    "question": "Cleaner finds out that some students were damaging school inventory.",
     "leftText": "Call students parents.",
     "rightText": "Call the police.",
-    "onLeft": [
-      -5,
-      5,
-      5,
-      5
-    ],
-    "onRight": [
-      -5,
-      5,
-      10,
-      -5
-    ],
-    "onIgnore": [
-      -5,
-      -5,
-      -5,
-      -5
-    ],
-    "requiredResponses": [
-    ],
+    "onLeft": [-5, 5, 5, 5],
+    "onRight": [-5, 5, 10, -5],
+    "onIgnore": [-5, -5, -5, -5],
+    "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
     "image": "BadKid.png"
