@@ -7,8 +7,6 @@ import 'rxjs';
 import { CardService } from './services/CardService';
 import { PointsService } from './services/PointsService';
 
-const MAX_VALUE = 100;
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,7 +24,6 @@ export class AppComponent {
     return this.maxXOffset * this.maxCancelRangePercentage;
   }
 
-  title = 'app works12313!';
   currentCard: Card;
   decisions: DecisionTree;
 
@@ -54,8 +51,6 @@ export class AppComponent {
 
   isDragging: boolean;
 
-  //@ViewChild('playingCard') cardRef: ElementRef;
-
   constructor(private cardService: CardService, private pointsService: PointsService) {
     console.log("starting");
     cardService.getAllCards().subscribe(cards => {
@@ -71,14 +66,12 @@ export class AppComponent {
   }
 
   private clickLeft() {
-    // alert("Click left");
     this.pointsService.addPoints(this.currentCard.onLeft);
     this.decisions.madeDecisions(this.currentCard, true);
     this.currentCard = this.decisions.getNextCard();
   }
 
   private clickRight() {
-    // alert("Click right");
     this.pointsService.addPoints(this.currentCard.onRight);
     this.decisions.madeDecisions(this.currentCard, false);
     this.currentCard = this.decisions.getNextCard();
@@ -95,7 +88,6 @@ export class AppComponent {
 
     this.isDragging = false;
     if (Math.abs(this.cardXCoordinate) < this.maxCancelRange) {
-      //return;
     }
     else {
       if (this.cardXCoordinate >= 0) {
@@ -105,7 +97,6 @@ export class AppComponent {
       }
     }
 
-    //this.cardXCoordinate = 0;
     let intervalId = setInterval(() => {
       this.cardXCoordinate -= this.cardXCoordinate / 20;
       if (Math.abs(this.cardXCoordinate) < 1) {
