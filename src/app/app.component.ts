@@ -7,7 +7,7 @@ import 'rxjs';
 import { CardService } from './services/CardService';
 import { PointsService } from './services/PointsService';
 
-const MAX_VALUE = 100;
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -37,15 +37,23 @@ export class AppComponent {
 
   private clickLeft() {
     // alert("Click left");
-    this.pointsService.addPoints(this.currentCard.onLeft);
-    this.decisions.madeDecisions(this.currentCard, true);
-    this.currentCard = this.decisions.getNextCard();
+    let isGameEnd = this.pointsService.addPoints(this.currentCard.onLeft);
+    if (!isGameEnd) {
+      this.decisions.madeDecisions(this.currentCard, true);
+      this.currentCard = this.decisions.getNextCard();
+    } else {
+      $('#endGameModal').modal('toggle');
+    }
   }
 
   private clickRight() {
     // alert("Click right");
-    this.pointsService.addPoints(this.currentCard.onRight);
-    this.decisions.madeDecisions(this.currentCard, false);
-    this.currentCard = this.decisions.getNextCard();
+    let isGameEnd = this.pointsService.addPoints(this.currentCard.onRight);
+    if (!isGameEnd) {
+      this.decisions.madeDecisions(this.currentCard, false);
+      this.currentCard = this.decisions.getNextCard();
+    } else {
+      $('#endGameModal').modal('toggle');
+    }
   }
 }

@@ -30,5 +30,82 @@
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
+  },
+  {
+    "id": 3,
+    "question": "One of the students complaied the gym teacher is always yelling on all the students.",
+    "leftText": "Enforce order",
+    "rightText": "So?",
+    "onLeft": [0, -5, -5, 5],
+    "onRight": [0, 0, 5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
+    "id": 4,
+    "question": "One of the students complaied the gym teacher is always yelling on all the students.",
+    "leftText": "Enforce order",
+    "rightText": "So?",
+    "onLeft": [0, -5, -40, 5],
+    "onRight": [0, 0, 5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
+    "id": 5,
+    "question": "One of the students complaied the gym teacher is always yelling on all the students.",
+    "leftText": "Enforce order",
+    "rightText": "So?",
+    "onLeft": [0, -5, -5, 5],
+    "onRight": [0, 0, 5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
+    "id": 6,
+    "question": "One of the students complaied the gym teacher is always yelling on all the students.",
+    "leftText": "Enforce order",
+    "rightText": "So?",
+    "onLeft": [0, -5, -5, 5],
+    "onRight": [0, 0, 5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
+    "id": 7,
+    "question": "One of the students complaied the gym teacher is always yelling on all the students.",
+    "leftText": "Enforce order",
+    "rightText": "So?",
+    "onLeft": [0, -5, -5, 5],
+    "onRight": [0, 0, 5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
+    "id": 8,
+    "question": "One of the students complaied the gym teacher is always yelling on all the students.",
+    "leftText": "Enforce order",
+    "rightText": "So?",
+    "onLeft": [0, -5, -5, 5],
+    "onRight": [0, 0, 5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
+    "id": 9,
+    "question": "One of the students complaied the gym teacher is always yelling on all the students.",
+    "leftText": "Enforce order",
+    "rightText": "So?",
+    "onLeft": [0, -5, -5, 5],
+    "onRight": [0, 0, 5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
   }
 ]
