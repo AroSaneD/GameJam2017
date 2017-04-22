@@ -143,43 +143,35 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="miniGameModalTitle">Click on as many bad students as you can for: {{minigameSecondsLeft}}</h5>
+        <h5 class="modal-title" id="miniGameModalTitle">Choose problematic students</h5>
       </div>
       <div class="modal-body">
-        <p>Each bad student or missclick will give you minus points.</p>
-        <p>Misses: 0</p>
-        <p>Bad kids collected: 0</p>
-        <div class="row">
-          <div class="col">
-            <a>
-              <img  src="/src/assets/BadKid.png" draggable="false">
-            </a>
-          </div>
-          <div class="col">
-            <a>
-              <img  src="/src/assets/Kid.png" draggable="false">
-            </a>
-          </div>
-          <div class="col">
-            <a>
-              <img  src="/src/assets/Kid.png" draggable="false">
-            </a>
-          </div>
-          <div class="col">
-            <a>
-              <img  src="/src/assets/Kid.png" draggable="false">
-            </a>
-          </div>
-          <div class="col">
-            <a>
-              <img  src="/src/assets/Kid.png" draggable="false">
-            </a>
+        <div class="progress">
+          <!--[style.width]="currentTurnDurationPercentage + '%'"-->
+          <div [style.width]="currentMiniGamePercentage + '%'" class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+            aria-valuemax="100"></div>
+        </div>
+        <br>
+        <div *ngIf="intervalRunning">
+          <div class="row" *ngFor="let row of miniGameData; let i = index; trackBy: trackByFn">
+            <div class="col" *ngFor="let col of row; let j = index; trackBy: trackByFn">
+              <a *ngIf="col.isBadStudent && !col.isClicked" (click)="clickedOnMiniGameImage(col)">
+                <img src="/src/assets/BadKid.png" draggable="false">
+              </a>
+              <a *ngIf="!col.isBadStudent && !col.isClicked" (click)="clickedOnMiniGameImage(col)">
+                <img src="/src/assets/Kid.png" draggable="false">
+              </a>
+            </div>
           </div>
         </div>
+        <div *ngIf="!intervalRunning">
+          Problematic students caught: {{badClicked}}<br>
+          Students faulty accused: {{goodClicked}}
+        </div>
       </div>
-      <!--<div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="startNewGame()" data-dismiss="modal">Play again</button>
-      </div>-->
+      <div class="modal-footer" *ngIf="!intervalRunning">
+        <button type="button" class="btn btn-primary" (click)="playerResponded(null)" data-dismiss="modal">Continue</button>
+      </div>
     </div>
   </div>
 </div>

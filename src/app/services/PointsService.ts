@@ -54,4 +54,15 @@ export class PointsService {
         return endScenario;
     }
 
+    public calculateMinigamePoints(goodClicked: number, badClicked: number, badStudentsCount: number) {
+        var total = badStudentsCount - badClicked;
+        total += goodClicked;
+        total *= 3;
+        this.points[3] -= total;
+        if(this.points[3] <= 0) {
+            return endScenarios[3];
+        }
+        return null;
+    }
+
 }
