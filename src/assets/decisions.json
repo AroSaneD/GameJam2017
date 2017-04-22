@@ -268,7 +268,7 @@
   },
   {
     "id": 10,
-    "question": "One student gives you an idea to participate in a contest to win partial funding for gym reniewal.",
+    "question": "One student gives you an idea to participate in a contest to win partial funding for gym renewal.",
     "leftText": "There are other people who need these money more.",
     "rightText": "That's a good idea.",
     "onLeft": [
@@ -448,5 +448,97 @@
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherWoman.png"
+  },
+  {
+    "id": 16,
+    "question": "School student council decided to make bullying prevention week and asks money for events.",
+    "leftText": "Agree.",
+    "rightText": "Disagree.",
+    "onLeft": [
+      -10,
+      -5,
+      5,
+      5
+    ],
+    "onRight": [
+      0,
+      -10,
+      -10,
+      -20
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+    ],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "StudentWoman.png"
+  },
+  {
+    "id": 17,
+    "question": "School student council made a claim at child care organization claiming that school director don't give funding for certain events.",
+    "leftText": "Explain the situation and rethink funding plans.",
+    "rightText": "Deny everything.",
+    "onLeft": [
+      -10,
+      10,
+      10,
+      0
+    ],
+    "onRight": [
+      0,
+      -10,
+      -15,
+      -15
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+      {
+        "cardId": 16,
+        "swipedLeft": true
+      }
+    ],
+    "isImmidiate": true,
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "BadKid.png"
+  },
+  {
+    "id": 18,
+    "question": "Cleaner finds out that some students were ruining school inventory.",
+    "leftText": "Call students parents.",
+    "rightText": "Call the police.",
+    "onLeft": [
+      -5,
+      5,
+      5,
+      5
+    ],
+    "onRight": [
+      -5,
+      5,
+      10,
+      -5
+    ],
+    "onIgnore": [
+      -5,
+      -5,
+      -5,
+      -5
+    ],
+    "requiredResponses": [
+    ],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "BadKid.png"
   }
 ]
