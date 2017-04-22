@@ -45,11 +45,18 @@ export class AppComponent {
       console.log(cards);
       this.setup(cards);
     });
+
   }
 
   private setup(cards: Array<Card>) {
     this.currentCard = this.decisions.getNextCard();
     console.log(this.currentCard);
+  }
+
+  private startNewGame() {
+    this.pointsService.points = [50, 50, 50, 50];
+    this.pointsService.turnsPassed = 0;
+    this.decisions.completedCardResponses = [];
   }
 
   private clickLeft() {
@@ -59,7 +66,7 @@ export class AppComponent {
       this.decisions.madeDecisions(this.currentCard, true);
       this.currentCard = this.decisions.getNextCard();
     } else {
-      $('#endGameModal').modal('toggle');
+      this.displayDialog();
     }
   }
 
@@ -70,8 +77,15 @@ export class AppComponent {
       this.decisions.madeDecisions(this.currentCard, false);
       this.currentCard = this.decisions.getNextCard();
     } else {
-      $('#endGameModal').modal('toggle');
+      this.displayDialog();
     }
+  }
+
+  displayDialog() {
+    $('#endGameModal').modal({
+      keyboard: false,
+      backdrop: 'static'
+    });
   }
 
   dragImageStart() {
