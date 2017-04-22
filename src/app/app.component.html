@@ -1,7 +1,6 @@
 <div class="background-wrapper" (mousemove)="dragImage($event)" (touchmove)="touchMove($event)" (mouseup)="dragImageEnd($event)"
   (touchend)="touchEnd($event)">
 
-
   <div class="game-wrapper">
 
     <div class="content-placeholder blue-background">
@@ -11,27 +10,31 @@
 
       <div class="row text-center stats-panel">
         <div class="col">
-          <span>currency</span>
+          <i class="fa fa-eur fa-2" aria-hidden="true"></i>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[0] + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[0] + '%'" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
         </div>
         <div class="col">
-          <span>personel</span>
+          <i class="fa fa-users fa-2" aria-hidden="true"></i>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[1] + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[1] + '%'" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
         </div>
         <div class="col">
-          <span>order</span>
+          <i class="fa fa-gavel fa-2" aria-hidden="true"></i>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[2] + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[2] + '%'" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
         </div>
         <div class="col">
-          <span style="white-space: nowrap">children ☺</span>
+          <i class="fa fa-child fa-2" aria-hidden="true"></i>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[3] + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[3] + '%'" aria-valuemin="0"
+              aria-valuemax="100"></div>
           </div>
         </div>
       </div>
@@ -67,28 +70,62 @@
         </div>
       </div>
       <div class="text-center">
-        <p>
-          Swipe
+        <p style="font-size: 25px; font-weight: 600;">
+          Swipe to answer
         </p>
       </div>
     </div>
 
   </div>
 
+  <div class="options-wrapper">
+    <a class="btn btn-secondary">LT</a>
+    <a class="btn btn-primary">EN</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#rulesModal" style="float: right">Rules</a>
+  </div>
+
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="endGameModal" tabindex="-1" role="dialog" aria-labelledby="endGameModalTitle" aria-hidden="true">
+
+<div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-labelledby="rulesModalTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="endGameModalTitle">Game state</h5>
+        <h5 class="modal-title" id="rulesModalTitle">Rules</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <!--<span aria-hidden="true">&times;</span>-->
         </button>
       </div>
       <div class="modal-body">
-        finish text
+        You are the newly assigned school director and are trying to improve the school or at least not fail as a director.
+        <br> You must keep the following stats from falling too low:<br>
+        <i class="fa fa-eur" aria-hidden="true"></i><b>Currency</b> - school finances<br>
+        <i class="fa fa-users" aria-hidden="true"></i><b>Personel</b> - school staff<br>
+        <i class="fa fa-gavel" aria-hidden="true"></i><b>Order</b> - school orderliness<br>
+        <i class="fa fa-child" aria-hidden="true"></i><b>Student happiness</b> - self explanatory<br> Swipe the presented card to the left or right to see the answer and
+        then release it to respond.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="endGameModal" tabindex="-1" role="dialog" aria-labelledby="endGameModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="endGameModalTitle">Game Over</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <!--<span aria-hidden="true">&times;</span>-->
+        </button>
+      </div>
+      <div class="modal-body">
+        <p *ngIf="endScenario != null">
+          {{endScenario.endText}}
+        </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="startNewGame()" data-dismiss="modal">Play again</button>

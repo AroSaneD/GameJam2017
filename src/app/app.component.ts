@@ -5,7 +5,7 @@ import { Http } from '@angular/http';
 
 import 'rxjs';
 import { CardService } from './services/CardService';
-import { PointsService } from './services/PointsService';
+import { PointsService, EndScenario } from './services/PointsService';
 
 declare var $: any;
 
@@ -27,6 +27,8 @@ export class AppComponent {
   private get maxCancelRange(): number {
     return this.maxXOffset * this.maxCancelRangePercentage;
   }
+
+  endScenario: EndScenario = null;
 
   currentCard: Card;
   decisions: DecisionTree;
@@ -76,6 +78,7 @@ export class AppComponent {
     this.pointsService.points = [50, 50, 50, 50];
     this.pointsService.turnsPassed = 0;
     this.decisions.completedCardResponses = [];
+    this.endScenario = null;
 
     // let intervalId = setInterval(() => {
     //   this.currentTurnDuration += 10;
@@ -84,18 +87,19 @@ export class AppComponent {
   }
 
   private clickLeft() {
-    this.decisions.madeDecisions(this.currentCard, true);
-    let isGameEnd = this.pointsService.addPoints(this.currentCard.onLeft);
-    this.playerResponded(isGameEnd);
+    let endScenario = this.pointsService.addPoints(this.currentCard.onLeft);
+    if (!endScenario) {
+      console.log(endScenario);
+      this.decisions.madeDecisions(this.currentCard, true);
+      this.currentCard = this.decisions.getNextCard();
+    } else {
+      this.endScenario = endScenario;
+      this.displayDialog();
   }
 
   private clickRight() {
-    this.decisions.madeDecisions(this.currentCard, false);
-    let isGameEnd = this.pointsService.addPoints(this.currentCard.onRight);
-    this.playerResponded(isGameEnd);
-  }
-
-  private clickIgnore() {
+    let endScenario = this.pointsService.addPoints(this.currentCard.onRight);
+    if (!endScenario != null) {
     this.decisions.madeDecisions(this.currentCard, false);
     let isGameEnd = this.pointsService.addPoints(this.currentCard.onIgnore);
     this.playerResponded(isGameEnd);
@@ -103,6 +107,7 @@ export class AppComponent {
 
   private playerResponded(isGameEnd: boolean) {
     if (isGameEnd) {
+      this.endScenario = endScenario;
       this.displayDialog();
       return;
     }
