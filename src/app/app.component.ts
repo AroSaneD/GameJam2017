@@ -203,8 +203,7 @@ export class AppComponent implements AfterViewInit {
   dragImageBackEnd(screenXPosition: number) {
     let xOffset = screenXPosition - (window.innerWidth / 2);
     if (Math.abs(xOffset) > this.maxXOffset) {
-      this.cardXCoordinate += (this.maxXOffset - Math.abs(xOffset)) * Math.sign(xOffset);
-      console.log(this.cardXCoordinate);
+      this.cardXCoordinate = xOffset + ((this.maxXOffset - Math.abs(xOffset)) * Math.sign(xOffset));
       return;
     }
 
