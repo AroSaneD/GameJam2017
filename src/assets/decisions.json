@@ -7,7 +7,8 @@
     "onRight": [-5, 0, 5, 10],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png" 
   },
   {
     "id": 1,
@@ -21,7 +22,8 @@
       "swipedLeft": true
     }],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "StudentWoman.png"
   },
   {
     "id": 2,
@@ -32,7 +34,8 @@
     "onRight": [0, 0, 5, -5],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   },
   {
     "id": 3,
@@ -43,7 +46,8 @@
     "onRight": [0, 0, -10, -5],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   },
   {
     "id": 4,
@@ -68,7 +72,8 @@
     "onRight": [0, 0, 5, -10],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   },
   {
     "id": 6,
@@ -79,7 +84,8 @@
     "onRight": [0, 0, 5, -5],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   },
   {
     "id": 7,
@@ -93,7 +99,8 @@
       "swipedLeft": true
     }],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   },
   {
     "id": 900,
@@ -104,7 +111,8 @@
     "onRight": [0, 15, -5, -20],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   },
   {
     "id": 901,
@@ -115,7 +123,8 @@
     "onRight": [0, 0, 0, -20],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   },
   {
     "id": 902,
@@ -126,7 +135,8 @@
     "onRight": [0, 0, 2, 2],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   },
   {
     "id": 903,
@@ -178,6 +188,7 @@
     "onRight": [-5, 5, 10, 10],
     "requiredResponses": [],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   }
 ]
