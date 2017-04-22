@@ -23,6 +23,7 @@ export class AppComponent implements AfterViewInit {
   private readonly maxCancelRangePercentage: number = 0.19;
 
   private readonly turnDurationInMilliseconds: number = 10000;
+  private readonly miniGameDurationInMilliseconds: number = 2000;
 
   private get maxCancelRange(): number {
     return this.maxXOffset * this.maxCancelRangePercentage;
@@ -34,6 +35,7 @@ export class AppComponent implements AfterViewInit {
   decisions: DecisionTree;
 
   cardXCoordinate: number = 0;
+  miniGameData: Array<Array<{ isBadStudent: boolean, isClicked: boolean }>> = null;
 
   private get cardRotation(): number {
     return Math.abs(this.cardXCoordinate) / this.maxXOffset * this.maxRotation * Math.sign(this.cardXCoordinate);
@@ -129,15 +131,34 @@ export class AppComponent implements AfterViewInit {
     this.playerResponded(endScenario);
   }
 
+  miniGameExecuted = false;
   private playerResponded(isGameEnd: EndScenario) {
-    if (isGameEnd) {
-      this.endScenario = isGameEnd;
-      this.displayDialog();
-      return;
+    var random = Math.random();
+
+    if (this.miniGameExecuted) {
+      this.pointsService.calculateMinigamePoints(this.goodClicked, this.badClicked, this.badStudentsCount);
     }
 
-    this.currentCard = this.decisions.getNextCard();
-    this.startTimer();
+    if (!isGameEnd && random > 0.7 && !this.miniGameExecuted) {
+      this.miniGameExecuted = true;
+      this.createMiniGameData();
+      $('#miniGameModal').modal({
+        keyboard: false,
+        backdrop: 'static'
+      });
+      clearInterval(this.timerIntervalId);
+      this.startMiniGameTimer();
+    } else {
+      this.miniGameExecuted = false;
+      if (isGameEnd) {
+        this.endScenario = isGameEnd;
+        this.displayDialog();
+        return;
+      }
+
+      this.currentCard = this.decisions.getNextCard();
+      this.startTimer();
+    }
   }
 
   displayDialog() {
@@ -217,6 +238,66 @@ export class AppComponent implements AfterViewInit {
     }
 
     this.cardXCoordinate += xOffset;
+  }
+
+  private get currentMiniGamePercentage(): number {
+    return this.miniGameTimer / this.miniGameDurationInMilliseconds * 100;
+  }
+
+  intervalRunning = false;
+  miniGameTimer: number = 0;
+  startMiniGameTimer() {
+    this.goodClicked = 0;
+    this.badClicked = 0;
+    this.intervalRunning = true;
+    if (this.timerIntervalId) {
+      clearInterval(this.timerIntervalId);
+    }
+
+    this.miniGameTimer = 0;
+    this.timerIntervalId = setInterval(() => {
+      this.miniGameTimer += 10;
+
+      if (this.miniGameTimer > this.miniGameDurationInMilliseconds) {
+        clearInterval(this.timerIntervalId);
+        this.intervalRunning = false;
+      }
+    }, 10);
+  }
+
+  goodClicked = 0;
+  badClicked = 0;
+  clickedOnMiniGameImage(kid: { isBadStudent: boolean, isClicked: boolean }) {
+    kid.isClicked = true;
+    if (kid.isBadStudent) {
+      this.badClicked++;
+    } else {
+      this.goodClicked++;
+    }
+  }
+
+  badStudentsCount: number = 0;
+  createMiniGameData() {
+    this.badStudentsCount = 0;
+    this.miniGameData = [];
+    for (let i = 0; i < 5; i++) {
+      this.miniGameData.push([]);
+      for (let j = 0; j < 5; j++) {
+        let random = Math.random();
+        if (random < 0.2) {
+          this.badStudentsCount++;
+          this.miniGameData[i].push({
+            isBadStudent: true,
+            isClicked: false
+          });
+        } else {
+          this.miniGameData[i].push({
+            isBadStudent: false,
+            isClicked: false
+          });
+        }
+      }
+    }
   }
 
 }
