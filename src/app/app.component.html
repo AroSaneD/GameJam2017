@@ -65,7 +65,7 @@
           <div *ngIf="isImageDraggedToLeft != null && isImageDraggedToLeft" class="answer" style="text-align: right">
             {{currentCard.leftText}}
           </div>
-          <img src="/src/assets/Kid.png" draggable="false">
+          <img src="/src/assets/{{currentCard.image}}" draggable="false">
           <!--Image-->
         </div>
       </div>
@@ -103,8 +103,8 @@
         <i class="fa fa-eur" aria-hidden="true"></i><b>Currency</b> - school finances<br>
         <i class="fa fa-users" aria-hidden="true"></i><b>Personel</b> - school staff<br>
         <i class="fa fa-gavel" aria-hidden="true"></i><b>Order</b> - school orderliness<br>
-        <i class="fa fa-child" aria-hidden="true"></i><b>Student happiness</b> - self explanatory<br> Swipe the presented card to the left or right to see the answer and
-        then release it to respond.
+        <i class="fa fa-child" aria-hidden="true"></i><b>Student happiness</b> - self explanatory<br> Swipe the presented
+        card to the left or right to see the answer and then release it to respond.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -130,6 +130,51 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="startNewGame()" data-dismiss="modal">Play again</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="miniGameModal" tabindex="-1" role="dialog" aria-labelledby="miniGameModalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="miniGameModalTitle">Click on as many bad students as you can for: {{minigameSecondsLeft}}</h5>
+      </div>
+      <div class="modal-body">
+        <p>Each bad student or missclick will give you minus points.</p>
+        <p>Misses: 0</p>
+        <p>Bad kids collected: 0</p>
+        <div class="row">
+          <div class="col">
+            <a>
+              <img  src="/src/assets/BadKid.png" draggable="false">
+            </a>
+          </div>
+          <div class="col">
+            <a>
+              <img  src="/src/assets/Kid.png" draggable="false">
+            </a>
+          </div>
+          <div class="col">
+            <a>
+              <img  src="/src/assets/Kid.png" draggable="false">
+            </a>
+          </div>
+          <div class="col">
+            <a>
+              <img  src="/src/assets/Kid.png" draggable="false">
+            </a>
+          </div>
+          <div class="col">
+            <a>
+              <img  src="/src/assets/Kid.png" draggable="false">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="startNewGame()" data-dismiss="modal">Play again</button>
+      </div>-->
     </div>
   </div>
 </div>
