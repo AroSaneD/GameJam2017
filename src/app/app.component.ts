@@ -150,15 +150,15 @@ export class AppComponent implements AfterViewInit {
       this.startMiniGameTimer();
     } else {
       this.miniGameExecuted = false;
-    if (isGameEnd) {
-      this.endScenario = isGameEnd;
-      this.displayDialog();
-      return;
-    }
+      if (isGameEnd) {
+        this.endScenario = isGameEnd;
+        this.displayDialog();
+        return;
+      }
 
-    this.currentCard = this.decisions.getNextCard();
-    this.startTimer();
-  }
+      this.currentCard = this.decisions.getNextCard();
+      this.startTimer();
+    }
   }
 
   displayDialog() {
