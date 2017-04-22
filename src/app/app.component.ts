@@ -34,6 +34,18 @@ export class AppComponent {
     return Math.abs(this.cardXCoordinate) / this.maxXOffset * this.maxYOffset;
   };
 
+  private get isImageDraggedToLeft(): boolean {
+    if (!this.isDragging) {
+      return null;
+    }
+
+    if (this.cardXCoordinate < 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   isDragging: boolean;
 
   //@ViewChild('playingCard') cardRef: ElementRef;
