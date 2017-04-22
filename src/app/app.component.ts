@@ -40,7 +40,7 @@ export class AppComponent {
   };
 
   private get isImageDraggedToLeft(): boolean {
-    if (!this.isDragging) {
+    if (!this.isDragging || Math.abs(this.cardXCoordinate) < this.maxCancelRange) {
       return null;
     }
 
