@@ -20,7 +20,12 @@ export class AppComponent {
   private readonly maxRotation: number = 5;
   private readonly maxYOffset: number = 40;
 
-  title = 'app works12313!';
+  private readonly maxCancelRangePercentage: number = 0.19;
+
+  private get maxCancelRange(): number {
+    return this.maxXOffset * this.maxCancelRangePercentage;
+  }
+
   currentCard: Card;
   decisions: DecisionTree;
 
@@ -48,8 +53,6 @@ export class AppComponent {
 
   isDragging: boolean;
 
-  //@ViewChild('playingCard') cardRef: ElementRef;
-
   constructor(private cardService: CardService, private pointsService: PointsService) {
     console.log("starting");
     cardService.getAllCards().subscribe(cards => {
@@ -72,7 +75,6 @@ export class AppComponent {
   }
 
   private clickLeft() {
-    // alert("Click left");
     let isGameEnd = this.pointsService.addPoints(this.currentCard.onLeft);
     if (!isGameEnd) {
       this.decisions.madeDecisions(this.currentCard, true);
@@ -83,7 +85,6 @@ export class AppComponent {
   }
 
   private clickRight() {
-    // alert("Click right");
     let isGameEnd = this.pointsService.addPoints(this.currentCard.onRight);
     if (!isGameEnd) {
       this.decisions.madeDecisions(this.currentCard, false);
@@ -110,8 +111,7 @@ export class AppComponent {
     }
 
     this.isDragging = false;
-    if (Math.abs(this.cardXCoordinate) < 25) {
-      //return;
+    if (Math.abs(this.cardXCoordinate) < this.maxCancelRange) {
     }
     else {
       if (this.cardXCoordinate >= 0) {
@@ -121,7 +121,6 @@ export class AppComponent {
       }
     }
 
-    //this.cardXCoordinate = 0;
     let intervalId = setInterval(() => {
       this.cardXCoordinate -= this.cardXCoordinate / 20;
       if (Math.abs(this.cardXCoordinate) < 1) {
@@ -136,12 +135,41 @@ export class AppComponent {
       return;
     }
 
-    if (Math.abs(this.cardXCoordinate + event.movementX) > this.maxXOffset) {
+    this.dragImageBackEnd(event.movementX, event.movementY);
+  }
+
+  dragImageBackEnd(xOffset: number, yOffset: number) {
+    if (Math.abs(this.cardXCoordinate + xOffset) > this.maxXOffset) {
       this.cardXCoordinate += (this.maxXOffset - Math.abs(this.cardXCoordinate)) * Math.sign(this.cardXCoordinate);
       return;
     }
 
-    this.cardXCoordinate += event.movementX;
+    this.cardXCoordinate += xOffset;
+  }
+
+  private lastTouch: Touch;
+  touchStart(): void {
+    this.dragImageStart();
+  }
+
+  touchEnd(): void {
+    this.lastTouch = null;
+    this.dragImageEnd();
+  }
+
+  touchMove(event: TouchEvent): void {
+    if (!this.isDragging) {
+      return;
+    }
+
+    if (!this.lastTouch) {
+      this.lastTouch = event.touches[0];
+      return;
+    }
+
+    var xOffset = event.touches[0].pageX - this.lastTouch.pageX;
+    var yOffset = event.touches[0].pageY - this.lastTouch.pageY;
+    this.dragImageBackEnd(xOffset, yOffset);
   }
 
 }
