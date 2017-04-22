@@ -57,7 +57,11 @@ export class AppComponent implements AfterViewInit {
 
   isDragging: boolean;
 
+  timerIntervalId: any;
   currentTurnDuration: number;
+  private get currentTurnDurationPercentage(): number {
+    return this.currentTurnDuration / this.turnDurationInMilliseconds * 100;
+  }
 
   constructor(private cardService: CardService, private pointsService: PointsService) {
     console.log("starting");
@@ -88,6 +92,23 @@ export class AppComponent implements AfterViewInit {
     //   this.currentTurnDuration += 10;
     //   if ()
     // }, 10);
+    this.startTimer();
+  }
+
+  private startTimer() {
+    if (this.timerIntervalId) {
+      clearInterval(this.timerIntervalId);
+    }
+
+    this.currentTurnDuration = 0;
+    this.timerIntervalId = setInterval(() => {
+      this.currentTurnDuration += 10;
+
+      if (this.currentTurnDuration > this.turnDurationInMilliseconds) {
+        clearInterval(this.timerIntervalId);
+        this.clickIgnore();
+      }
+    }, 10);
   }
 
   private clickLeft() {
@@ -116,6 +137,7 @@ export class AppComponent implements AfterViewInit {
     }
 
     this.currentCard = this.decisions.getNextCard();
+    this.startTimer();
   }
 
   displayDialog() {

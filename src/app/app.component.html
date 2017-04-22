@@ -3,6 +3,11 @@
 
   <div class="game-wrapper">
 
+    <div class="progress turn-duration-progress-bar">
+      <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="currentTurnDurationPercentage + '%'" aria-valuemin="0"
+        aria-valuemax="100"></div>
+    </div>
+
     <div class="content-placeholder blue-background">
       <div class="text-center">
         <h5>Days as director: {{pointsService.turnsPassed}}</h5>
