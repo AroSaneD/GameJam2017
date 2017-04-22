@@ -61,7 +61,8 @@
       "swipedLeft": true
     }],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherWoman.png"
   },
   {
     "id": 5,
@@ -150,7 +151,8 @@
       "swipedLeft": true
     }],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherWoman.png"
   },
   {
     "id": 904,
@@ -164,7 +166,8 @@
       "swipedLeft": true
     }],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherWoman.png"
   },
   {
     "id": 905,
@@ -178,7 +181,8 @@
       "swipedRight": true
     }],
     "requiredStats": [],
-    "cardFamily": null
+    "cardFamily": null,
+    "image": "TeacherMan.png"
   }, {
     "id": 700,
     "question": "You notice one of the teachers isn't doing his job correctly, but the student body respects and adores him.",

@@ -20,7 +20,7 @@ export class AppComponent implements AfterViewInit {
   private readonly maxRotation: number = 5;
   private readonly maxYOffset: number = 40;
 
-  private readonly maxCancelRangePercentage: number = 0.19;
+  private readonly maxCancelRangePercentage: number = 0.25;
 
   private readonly turnDurationInMilliseconds: number = 50000;
 
