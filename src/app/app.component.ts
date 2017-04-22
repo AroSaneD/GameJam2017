@@ -5,7 +5,7 @@ import { Http } from '@angular/http';
 
 import 'rxjs';
 import { CardService } from './services/CardService';
-import { PointsService } from './services/PointsService';
+import { PointsService, EndScenario } from './services/PointsService';
 
 declare var $: any;
 
@@ -25,6 +25,8 @@ export class AppComponent {
   private get maxCancelRange(): number {
     return this.maxXOffset * this.maxCancelRangePercentage;
   }
+
+  endScenario: EndScenario = null;
 
   currentCard: Card;
   decisions: DecisionTree;
@@ -72,24 +74,28 @@ export class AppComponent {
     this.pointsService.points = [50, 50, 50, 50];
     this.pointsService.turnsPassed = 0;
     this.decisions.completedCardResponses = [];
+    this.endScenario = null;
   }
 
   private clickLeft() {
-    let isGameEnd = this.pointsService.addPoints(this.currentCard.onLeft);
-    if (!isGameEnd) {
+    let endScenario = this.pointsService.addPoints(this.currentCard.onLeft);
+    if (!endScenario) {
+      console.log(endScenario);
       this.decisions.madeDecisions(this.currentCard, true);
       this.currentCard = this.decisions.getNextCard();
     } else {
+      this.endScenario = endScenario;
       this.displayDialog();
     }
   }
 
   private clickRight() {
-    let isGameEnd = this.pointsService.addPoints(this.currentCard.onRight);
-    if (!isGameEnd) {
+    let endScenario = this.pointsService.addPoints(this.currentCard.onRight);
+    if (!endScenario != null) {
       this.decisions.madeDecisions(this.currentCard, false);
       this.currentCard = this.decisions.getNextCard();
     } else {
+      this.endScenario = endScenario;
       this.displayDialog();
     }
   }
