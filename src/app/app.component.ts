@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Card } from './model/Card';
 import { DecisionTree } from './model/DecisionTree';
 import { Http } from '@angular/http';
@@ -15,12 +15,14 @@ declare var $: any;
   styleUrls: ['./app.component.css'],
   providers: [CardService, PointsService]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   private readonly maxXOffset: number = 130;
   private readonly maxRotation: number = 5;
   private readonly maxYOffset: number = 40;
 
   private readonly maxCancelRangePercentage: number = 0.19;
+
+  private readonly turnDurationInMilliseconds: number = 10000;
 
   private get maxCancelRange(): number {
     return this.maxXOffset * this.maxCancelRangePercentage;
@@ -42,7 +44,7 @@ export class AppComponent {
   };
 
   private get isImageDraggedToLeft(): boolean {
-    if (!this.isDragging) {
+    if (!this.isDragging || Math.abs(this.cardXCoordinate) < this.maxCancelRange) {
       return null;
     }
 
@@ -55,6 +57,8 @@ export class AppComponent {
 
   isDragging: boolean;
 
+  currentTurnDuration: number;
+
   constructor(private cardService: CardService, private pointsService: PointsService) {
     console.log("starting");
     cardService.getAllCards().subscribe(cards => {
@@ -65,9 +69,13 @@ export class AppComponent {
 
   }
 
+  ngAfterViewInit() {
+    $('.game-wrapper').css('height', (window.innerHeight - 56) + 'px');
+  }
+
   private setup(cards: Array<Card>) {
     this.currentCard = this.decisions.getNextCard();
-    console.log(this.currentCard);
+    this.startNewGame();
   }
 
   private startNewGame() {
@@ -75,29 +83,39 @@ export class AppComponent {
     this.pointsService.turnsPassed = 0;
     this.decisions.completedCardResponses = [];
     this.endScenario = null;
+
+    // let intervalId = setInterval(() => {
+    //   this.currentTurnDuration += 10;
+    //   if ()
+    // }, 10);
   }
 
   private clickLeft() {
     let endScenario = this.pointsService.addPoints(this.currentCard.onLeft);
-    if (!endScenario) {
-      console.log(endScenario);
-      this.decisions.madeDecisions(this.currentCard, true);
-      this.currentCard = this.decisions.getNextCard();
-    } else {
-      this.endScenario = endScenario;
-      this.displayDialog();
-    }
+    this.decisions.madeDecisions(this.currentCard, true);
+    this.playerResponded(endScenario);
   }
 
   private clickRight() {
     let endScenario = this.pointsService.addPoints(this.currentCard.onRight);
-    if (!endScenario != null) {
-      this.decisions.madeDecisions(this.currentCard, false);
-      this.currentCard = this.decisions.getNextCard();
-    } else {
-      this.endScenario = endScenario;
+    this.decisions.madeDecisions(this.currentCard, false);
+    this.playerResponded(endScenario);
+  }
+
+  private clickIgnore() {
+    let endScenario = this.pointsService.addPoints(this.currentCard.onIgnore);
+    this.decisions.madeDecisions(this.currentCard, null);
+    this.playerResponded(endScenario);
+  }
+
+  private playerResponded(isGameEnd: EndScenario) {
+    if (isGameEnd) {
+      this.endScenario = isGameEnd;
       this.displayDialog();
+      return;
     }
+
+    this.currentCard = this.decisions.getNextCard();
   }
 
   displayDialog() {
@@ -105,6 +123,32 @@ export class AppComponent {
       keyboard: false,
       backdrop: 'static'
     });
+  }
+
+  private lastTouch: Touch;
+  touchStart(): void {
+    this.dragImageStart();
+  }
+
+  touchEnd(): void {
+    this.lastTouch = null;
+    this.dragImageEnd();
+  }
+
+  touchMove(event: TouchEvent): void {
+    if (!this.isDragging) {
+      return;
+    }
+
+    if (!this.lastTouch) {
+      this.lastTouch = event.touches[0];
+      return;
+    }
+
+    let smoothnessMultiplier = 0.2;
+    var xOffset = (event.touches[0].clientX - this.lastTouch.clientX) * smoothnessMultiplier;
+    var yOffset = (event.touches[0].clientY - this.lastTouch.clientY) * smoothnessMultiplier;
+    this.dragImageBackEnd(xOffset, yOffset);
   }
 
   dragImageStart() {
@@ -151,31 +195,6 @@ export class AppComponent {
     }
 
     this.cardXCoordinate += xOffset;
-  }
-
-  private lastTouch: Touch;
-  touchStart(): void {
-    this.dragImageStart();
-  }
-
-  touchEnd(): void {
-    this.lastTouch = null;
-    this.dragImageEnd();
-  }
-
-  touchMove(event: TouchEvent): void {
-    if (!this.isDragging) {
-      return;
-    }
-
-    if (!this.lastTouch) {
-      this.lastTouch = event.touches[0];
-      return;
-    }
-
-    var xOffset = event.touches[0].pageX - this.lastTouch.pageX;
-    var yOffset = event.touches[0].pageY - this.lastTouch.pageY;
-    this.dragImageBackEnd(xOffset, yOffset);
   }
 
 }

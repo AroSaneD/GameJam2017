@@ -47,6 +47,17 @@
     "image": "TeacherMan.png"
   },
   {
+    "id": 700,
+    "question": "You notice one of the teachers isn't doing his job correctly, but the student body respects and adores him.",
+    "leftText": "Fire the teacher.",
+    "rightText": "Let him stay.",
+    "onLeft": [0, -10, -15, -15],
+    "onRight": [-5, 5, 10, 10],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null
+  },
+  {
     "id": 993,
     "question": "One of the students complaied the gym teacher is always yelling on all the students.",
     "leftText": "Enforce order",
