@@ -21,6 +21,7 @@ export class PointsService {
                 gameEnded = true;
             }
         });
+        console.log("points", this.points);
         this.turnsPassed++;
         return gameEnded;
     }

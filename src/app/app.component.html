@@ -11,20 +11,28 @@
 
       <div class="row text-center">
         <div class="col">
-          <p>{{pointsService.points[0]}}</p>
           <p>currency</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[0] + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
         </div>
         <div class="col">
-          <p>{{pointsService.points[1]}}</p>
           <p>personel</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[1] + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
         </div>
         <div class="col">
-          <p>{{pointsService.points[2]}}</p>
           <p>order</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[2] + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
         </div>
         <div class="col">
-          <p>{{pointsService.points[3]}}</p>
-          <p>children ☺</p>
+          <p style="white-space: nowrap">children ☺</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="pointsService.points[3] + '%'" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -48,10 +56,10 @@
       <div class="content-placeholder">
         <div [ngStyle]="{ 'left': cardXCoordinate + 'px', 'transform': 'rotate(' + cardRotation + 'deg)', 'top': cardYCoordinate + 'px' }"
           class="card" (mousedown)="dragImageStart()" (touchstart)="dragImageStart()">
-          <div *ngif="isImageDraggedToLeft != null && !isImageDraggedToLeft" class="answer">
+          <div *ngIf="isImageDraggedToLeft != null && !isImageDraggedToLeft" class="answer" style="text-align: left">
             {{currentCard.rightText}}
           </div>
-          <div *ngif="isImageDraggedToLeft != null && isImageDraggedToLeft" class="answer">
+          <div *ngIf="isImageDraggedToLeft != null && isImageDraggedToLeft" class="answer" style="text-align: right">
             {{currentCard.leftText}}
           </div>
           <img src="/src/assets/Kid.png" draggable="false">
