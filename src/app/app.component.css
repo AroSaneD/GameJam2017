@@ -73,3 +73,13 @@ body {
 .progress-bar {
     background-color: rgb(193, 193, 193)
 }
+
+.fa {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.fa-2 {
+    font-size: 1.5em;
+}
