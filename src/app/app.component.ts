@@ -22,7 +22,7 @@ export class AppComponent implements AfterViewInit {
 
   private readonly maxCancelRangePercentage: number = 0.25;
 
-  private readonly turnDurationInMilliseconds: number = 50000;
+  private readonly turnDurationInMilliseconds: number = 5000;
   private readonly miniGameDurationInMilliseconds: number = 2000;
 
   private get maxCancelRange(): number {
