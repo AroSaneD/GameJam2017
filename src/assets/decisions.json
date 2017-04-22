@@ -5,6 +5,7 @@
     "rightText": "But...",
     "onLeft": [20, -5, -5, -15],
     "onRight": [-5, 0, 5, 10],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -14,8 +15,9 @@
     "question": "A teacher tells you that one her studens is acting very depressed and that a school should hire a new psychiatrist.",
     "leftText": "Anything for the kids!",
     "rightText": "Budget too low, sorry.",
-    "onLeft": [25, 0, -5, -15],
-    "onRight": [-20, 10, 10, 10],
+    "onLeft": [-20, 10, 10, 10],
+    "onRight": [25, 0, -5, -15],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [{"cardId": 0, "swipedLeft": true}],
     "requiredStats": [],
     "cardFamily": null
@@ -27,6 +29,7 @@
     "rightText": "So?",
     "onLeft": [0, -5, -5, 5],
     "onRight": [0, 0, 5, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -38,6 +41,7 @@
     "rightText": "Give students self learning class.",
     "onLeft": [-5, 3, -5, -3],
     "onRight": [0, 0, -10, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -49,6 +53,7 @@
     "rightText": "Let him stay.",
     "onLeft": [0, -10, -15, -15],
     "onRight": [-5, 5, 10, 10],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -60,6 +65,7 @@
     "rightText": "So?",
     "onLeft": [0, -5, -5, 5],
     "onRight": [0, 0, 5, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -71,6 +77,7 @@
     "rightText": "So?",
     "onLeft": [0, -5, -40, 5],
     "onRight": [0, 0, 5, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -82,6 +89,7 @@
     "rightText": "So?",
     "onLeft": [0, -5, -5, 5],
     "onRight": [0, 0, 5, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -93,6 +101,7 @@
     "rightText": "So?",
     "onLeft": [0, -5, -5, 5],
     "onRight": [0, 0, 5, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -104,6 +113,7 @@
     "rightText": "So?",
     "onLeft": [0, -5, -5, 5],
     "onRight": [0, 0, 5, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -115,6 +125,7 @@
     "rightText": "So?",
     "onLeft": [0, -5, -5, 5],
     "onRight": [0, 0, 5, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null
@@ -126,6 +137,7 @@
     "rightText": "So?",
     "onLeft": [0, -5, -5, 5],
     "onRight": [0, 0, 5, -5],
+    "onIgnore": [-5, -5, -5, -5],
     "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null

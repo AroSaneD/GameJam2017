@@ -3,6 +3,11 @@
 
   <div class="game-wrapper">
 
+    <div class="progress turn-duration-progress-bar">
+      <div class="progress-bar" role="progressbar" aria-valuenow="50" [style.width]="currentTurnDurationPercentage + '%'" aria-valuemin="0"
+        aria-valuemax="100"></div>
+    </div>
+
     <div class="content-placeholder blue-background">
       <div class="text-center">
         <h5>Days as director: {{pointsService.turnsPassed}}</h5>
@@ -103,8 +108,8 @@
         <i class="fa fa-eur" aria-hidden="true"></i><b>Currency</b> - school finances<br>
         <i class="fa fa-users" aria-hidden="true"></i><b>Personel</b> - school staff<br>
         <i class="fa fa-gavel" aria-hidden="true"></i><b>Order</b> - school orderliness<br>
-        <i class="fa fa-child" aria-hidden="true"></i><b>Student happiness</b> - self explanatory<br> Swipe the presented card to the left or right to see the answer and
-        then release it to respond.
+        <i class="fa fa-child" aria-hidden="true"></i><b>Student happiness</b> - self explanatory<br> Swipe the presented
+        card to the left or right to see the answer and then release it to respond.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
