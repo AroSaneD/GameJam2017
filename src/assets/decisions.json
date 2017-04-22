@@ -325,25 +325,17 @@
     "leftText": "Ignore the request.",
     "rightText": "Raise the salary.",
     "onLeft": [
-      0,
-      -15,
-      -10,
-      -10
+      0, -15, -10, -10
     ],
-    "onRight": [
-      -20,
+    "onRight": [-20,
       5,
       10,
       5
     ],
     "onIgnore": [
-      0,
-      -20,
-      -10,
-      -10
+      0, -20, -10, -10
     ],
-    "requiredResponses": [
-    ],
+    "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherWoman.png"
@@ -356,25 +348,80 @@
     "onLeft": [
       0,
       5,
-      10,
-      -5
+      10, -5
     ],
     "onRight": [
-      0,
-      -10,
-      -10,
-      -5
+      0, -10, -10, -5
     ],
-    "onIgnore": [
-      -5,
-      -10,
-      -10,
-      -5
-    ],
-    "requiredResponses": [
-    ],
+    "onIgnore": [-5, -10, -10, -5],
+    "requiredResponses": [],
     "requiredStats": [],
     "cardFamily": null,
     "image": "TeacherWoman.png"
+  },
+  {
+    "id": 101,
+    "question": "You are notified that large portion of students live far away and perhaps a school bus should be bought.",
+    "leftText": "Buy the buss.",
+    "rightText": "Money doesn't grow on trees.",
+    "onLeft": [-10, 5, 5, 20],
+    "onRight": [5, 0, 0, -10],
+    "onIgnore": [-5, -5, -5, -5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "Kid.png"
+  },
+  {
+    "id": 102,
+    "question": "You noticed students sitting on windowsills during break.",
+    "leftText": "Let them relax.",
+    "rightText": "Punish said students.",
+    "onLeft": [-5, 0, -5, 10],
+    "onRight": [0, 0, 10, -10],
+    "onIgnore": [-5, 0, -5, 10],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "TeacherWoman.png"
+  },
+  {
+    "id": 103,
+    "question": "A teacher reported a student skipping her classes.",
+    "leftText": "Notify students parent.",
+    "rightText": "Suspend student.",
+    "onLeft": [-5, 0, -5, 10],
+    "onRight": [0, 0, 10, -10],
+    "onIgnore": [-5, 0, -5, 10],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "BadKid.png"
+  },
+  {
+    "id": 104,
+    "question": "You overheard a group of students organizing a prank",
+    "leftText": "Threaten to suspend them.",
+    "rightText": "Join in.",
+    "onLeft": [0, 0, 10, -10],
+    "onRight": [0, 0, -10, 10],
+    "onIgnore": [0, -5, -10, 5],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "BadKid.png"
+  },
+  {
+    "id": 105,
+    "question": "Some of the students are complaining that their teacher is not qualified.",
+    "leftText": "Ignore students.",
+    "rightText": "Talk with teacher about it.",
+    "onLeft": [0, 0, 0, -10],
+    "onRight": [0, 0, -5, 5],
+    "onIgnore": [0, 0, 0, -10],
+    "requiredResponses": [],
+    "requiredStats": [],
+    "cardFamily": null,
+    "image": "BadKid.png"
   }
 ]
