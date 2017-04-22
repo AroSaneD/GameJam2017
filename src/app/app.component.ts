@@ -143,8 +143,9 @@ export class AppComponent {
       return;
     }
 
-    var xOffset = event.touches[0].pageX - this.lastTouch.pageX;
-    var yOffset = event.touches[0].pageY - this.lastTouch.pageY;
+    let smoothnessMultiplier = 0.2;
+    var xOffset = (event.touches[0].clientX - this.lastTouch.clientX) * smoothnessMultiplier;
+    var yOffset = (event.touches[0].clientY - this.lastTouch.clientY) * smoothnessMultiplier;
     this.dragImageBackEnd(xOffset, yOffset);
   }
 
