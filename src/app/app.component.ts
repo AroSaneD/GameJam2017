@@ -22,7 +22,7 @@ export class AppComponent implements AfterViewInit {
 
   private readonly maxCancelRangePercentage: number = 0.19;
 
-  private readonly turnDurationInMilliseconds: number = 10000;
+  private readonly turnDurationInMilliseconds: number = 50000;
 
   private get maxCancelRange(): number {
     return this.maxXOffset * this.maxCancelRangePercentage;
@@ -147,13 +147,11 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  private lastTouch: Touch;
   touchStart(): void {
     this.dragImageStart();
   }
 
   touchEnd(): void {
-    this.lastTouch = null;
     this.dragImageEnd();
   }
 
@@ -162,15 +160,7 @@ export class AppComponent implements AfterViewInit {
       return;
     }
 
-    if (!this.lastTouch) {
-      this.lastTouch = event.touches[0];
-      return;
-    }
-
-    let smoothnessMultiplier = 0.2;
-    var xOffset = (event.touches[0].clientX - this.lastTouch.clientX) * smoothnessMultiplier;
-    var yOffset = (event.touches[0].clientY - this.lastTouch.clientY) * smoothnessMultiplier;
-    this.dragImageBackEnd(xOffset, yOffset);
+    this.dragImageBackEnd(event.touches[0].pageX);
   }
 
   dragImageStart() {
@@ -207,16 +197,17 @@ export class AppComponent implements AfterViewInit {
       return;
     }
 
-    this.dragImageBackEnd(event.movementX, event.movementY);
+    this.dragImageBackEnd(event.pageX);
   }
 
-  dragImageBackEnd(xOffset: number, yOffset: number) {
-    if (Math.abs(this.cardXCoordinate + xOffset) > this.maxXOffset) {
-      this.cardXCoordinate += (this.maxXOffset - Math.abs(this.cardXCoordinate)) * Math.sign(this.cardXCoordinate);
+  dragImageBackEnd(screenXPosition: number) {
+    let xOffset = screenXPosition - (window.innerWidth / 2);
+    if (Math.abs(xOffset) > this.maxXOffset) {
+      this.cardXCoordinate += (this.maxXOffset - Math.abs(xOffset)) * Math.sign(xOffset);
       return;
     }
 
-    this.cardXCoordinate += xOffset;
+    this.cardXCoordinate = xOffset;
   }
 
 }
