@@ -76,7 +76,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    $('.game-wrapper').css('height', (window.innerHeight - 56) + 'px');
+    $('.game-wrapper').css('height', (window.innerHeight - 58) + 'px');
   }
 
   private setup(cards: Array<Card>) {
